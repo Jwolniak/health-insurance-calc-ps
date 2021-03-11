@@ -1,8 +1,6 @@
 // this program will calculate and print the risk factor 
 // for the health insurance
 
-var total = 0;
-
 function calcAgePoints() {
     var agepts = 0;
     if (document.getElementById("age") < 30)
@@ -21,7 +19,7 @@ function calcAgePoints() {
 
 function calcBodyMassIndex() {
     var bmipts = 0;
-    bmi = (703 * (document.getElementById("weight")) / (document.getElementById("height")^2))
+    bmi = (703 * (document.getElementById("weight")) / (document.getElementById("height")^2));
     if (bmi >= 18.5 && bmi <= 24.9)
         bmipts = 0;
     elif (bmi >= 25.0 && bmi <= 29.9)
@@ -69,5 +67,34 @@ function history() {
 }
 
 function calcRisk() {
+    var age = calAgePoints();
+    var bmi = calcBodyMassIndex();
+    var index = (703 * (document.getElementById("weight")) / (document.getElementById("height")^2));
+    var bp = calcBP();
+    var pressure;
+    if (bp == 0)
+        pressure = "normal"
+    elif (bp == 15)
+        pressure = "elevated"
+    elif (bp == 30)
+        pressure = "stage 1"
+    elif (bp == 75)
+        pressure = "stage 2"
+    elif (bp == 100)
+        pressure = "crisis"
+    var hist = histroy();
+    var risk = age + bmi + bp + hist;
+    print("Age:                 " + age);
+    print("Body Mass:           " + bmi + "(index = " +index + ")");
+    print("Blood Pressure:      " + bp + "(" + pressure + ")");
+    print("Family History:      " + hist);
+    if (risk <= 20)
+        print("Based on these scores, the patient is low-risk.");
+    elif(risk >=21 && risk <= 50)
+        print("Based on these scores, the patient is moderate-risk.");
+    elif (risk >= 51 && risk <= 70)
+        print("Based on these scores, the patient is high-risk.");
+    elif (risk >= 71)
+        print("Based on these scores, the patient is uninsurable.");
 
 }

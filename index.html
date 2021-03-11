@@ -3,14 +3,14 @@
 
     <head>
         <meta charset="UTF-8">
-        <title><b>Health Insurance Risk Caluclator</b></title>
+        <title>Health Insurance Risk Calculator</title>
         <link rel="stylesheet" href="health-insurance-calc.css">
         <script src="health-insurance-calc.js"></script>
     </head>
-    <p>This program will help you classify health insurance
-        based upon someone's risk level. The risk level is
-        determined by their health. Their health is judged in terms
-        of their body-mass index, blood pressure, age,
+    <p>This program will help you classify health insurance<br><br>
+        based upon someone's risk level. The risk level is<br><br>
+        determined by their health. Their health is judged in terms<br><br>
+        of their body-mass index, blood pressure, age,<br><br>
         and family history of disease.
     </p>
     <body>
@@ -24,12 +24,7 @@
        Cancer? <input id="cancer" type="text" value="" size="5"><br><br>
        Alzheimers? <input id="alz" type="text" value="" size="5"><br><br>
        <br><br>
-       Risk Scores: <br><br>
-       Age: 
-       Body-Mass: 
-       Blood Pressure: 
-       Family history: 
-       <br><br>
+       <button onclick=alert(calcRisk())>Calculate Risk</button><br><br>
        Do you have another patient? <input id="patient" type="text" value="" size="5"><br><br>
     </body>
 </html>
