@@ -19,7 +19,7 @@ function calcAgePoints() {
 
 function calcBodyMassIndex() {
     var bmipts = 0;
-    bmi = (703 * (document.getElementById("weight")) / (document.getElementById("height")^2));
+    bmi = (703 * (document.getElementById("weight")) / Math.pow(document.getElementById("height"),2));
     if (bmi >= 18.5 && bmi <= 24.9)
         bmipts = 0;
     elif (bmi >= 25.0 && bmi <= 29.9)
@@ -46,7 +46,7 @@ function calcBP() {
     return bppts;
 }
 
-function history() {
+function calcHistory() {
     var hispts = 0;
     document.getElementById("diabetes") = diab;
     document.getElementById("cancer") = cancer;
@@ -67,27 +67,23 @@ function history() {
 }
 
 function calcRisk() {
-    var age = calAgePoints();
-    var bmi = calcBodyMassIndex();
-    var index = (703 * (document.getElementById("weight")) / (document.getElementById("height")^2));
-    var bp = calcBP();
-    var pressure;
-    if (bp == 0)
-        pressure = "normal"
-    elif (bp == 15)
-        pressure = "elevated"
+    agev = calAgePoints();
+    bmi = calcBodyMassIndex();
+    index = (703 * (document.getElementById("weight")) / (document.getElementById("height")^2));
+    bp = calcBP();
+    pressure;
+    if (bp == 0) 
+        pressure = "normal";
+    elif (bp == 15) 
+        pressure = "elevated";
     elif (bp == 30)
-        pressure = "stage 1"
+        pressure = "stage 1";
     elif (bp == 75)
-        pressure = "stage 2"
+        pressure = "stage 2";
     elif (bp == 100)
-        pressure = "crisis"
-    var hist = histroy();
+        pressure = "crisis";
+    var hist = calcHistroy();
     var risk = age + bmi + bp + hist;
-    print("Age:                 " + age);
-    print("Body Mass:           " + bmi + "(index = " +index + ")");
-    print("Blood Pressure:      " + bp + "(" + pressure + ")");
-    print("Family History:      " + hist);
     if (risk <= 20)
         print("Based on these scores, the patient is low-risk.");
     elif(risk >=21 && risk <= 50)
