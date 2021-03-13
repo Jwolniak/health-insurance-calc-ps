@@ -2,7 +2,7 @@
 // for the health insurance
 
 function calcAgePoints() {
-    var agepts = 0;
+    agepts = 0;
     if (document.getElementById("age") < 30)
         agepts = 0;
         
@@ -18,7 +18,7 @@ function calcAgePoints() {
 }
 
 function calcBodyMassIndex() {
-    var bmipts = 0;
+    bmipts = 0;
     bmi = (703 * (document.getElementById("weight")) / Math.pow(document.getElementById("height"),2));
     if (bmi >= 18.5 && bmi <= 24.9)
         bmipts = 0;
@@ -30,7 +30,7 @@ function calcBodyMassIndex() {
 }
 
 function calcBP() {
-    var bppts = 0;
+    bppts = 0;
     document.getElementById("sysbp") = sys;
     document.getElementById("diabp") = dia;
     if (sys < 120 && dia < 80)
@@ -47,7 +47,7 @@ function calcBP() {
 }
 
 function calcHistory() {
-    var hispts = 0;
+    hispts = 0;
     document.getElementById("diabetes") = diab;
     document.getElementById("cancer") = cancer;
     document.getElementById("alz") = alz;
@@ -96,5 +96,5 @@ function calcRisk() {
         print("Based on these scores, the patient is high-risk.");
     elif (risk >= 71)
         print("Based on these scores, the patient is uninsurable.");
-
+    
 }
