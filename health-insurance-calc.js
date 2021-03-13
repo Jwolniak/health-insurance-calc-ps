@@ -3,23 +3,23 @@
 
 function calcAgePoints() {
     agepts = 0;
-    if (document.getElementById("age") < 30)
+    if (document.getElementById("age").value < 30)
         agepts = 0;
         
-    elif (document.getElementById("age") >= 31 && document.getElementById("age") < 45)
+    elif (document.getElementById("age").value >= 31 && document.getElementById("age").value < 45)
         agepts = 10;
 
-    elif (document.getElementById("age") >= 46 && document.getElementById("age") < 60)
+    elif (document.getElementById("age").value >= 46 && document.getElementById("age").value < 60)
         agepts = 20;
 
-    elif (document.getElementById("age") >= 61)
+    elif (document.getElementById("age").value >= 61)
         agepts = 30;
     return agepts;
 }
 
 function calcBodyMassIndex() {
     bmipts = 0;
-    bmi = (703 * (document.getElementById("weight")) / Math.pow(document.getElementById("height"),2));
+    bmi = (703 * (document.getElementById("weight").value) / Math.pow(document.getElementById("height").value,2));
     if (bmi >= 18.5 && bmi <= 24.9)
         bmipts = 0;
     elif (bmi >= 25.0 && bmi <= 29.9)
@@ -31,8 +31,8 @@ function calcBodyMassIndex() {
 
 function calcBP() {
     bppts = 0;
-    document.getElementById("sysbp") = sys;
-    document.getElementById("diabp") = dia;
+    document.getElementById("sysbp").value = sys;
+    document.getElementById("diabp").value = dia;
     if (sys < 120 && dia < 80)
         bppts = 0;
     elif (sys >= 120 && sys <= 129 && dia < 80)
@@ -69,7 +69,7 @@ function calcHistory() {
 function calcRisk() {
     var agev = calAgePoints();
     var bmi = calcBodyMassIndex();
-    var index = (703 * (document.getElementById("weight")) / (document.getElementById("height")^2));
+    var index = (703 * (document.getElementById("weight").value) / Math.pow(document.getElementById("height").value,2));
     var bp = calcBP();
     var pressure;
     if (bp == 0) 
@@ -92,5 +92,4 @@ function calcRisk() {
         print("Based on these scores, the patient is high-risk.");
     elif (risk >= 71)
         print("Based on these scores, the patient is uninsurable.");
-    
 }
