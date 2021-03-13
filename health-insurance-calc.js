@@ -67,11 +67,11 @@ function calcHistory() {
 }
 
 function calcRisk() {
-    agev = calAgePoints();
-    bmi = calcBodyMassIndex();
-    index = (703 * (document.getElementById("weight")) / (document.getElementById("height")^2));
-    bp = calcBP();
-    pressure;
+    var agev = calAgePoints();
+    var bmi = calcBodyMassIndex();
+    var index = (703 * (document.getElementById("weight")) / (document.getElementById("height")^2));
+    var bp = calcBP();
+    var pressure;
     if (bp == 0) 
         pressure = "normal";
     elif (bp == 15) 
@@ -83,11 +83,7 @@ function calcRisk() {
     elif (bp == 100)
         pressure = "crisis";
     var hist = calcHistroy();
-    var risk = age + bmi + bp + hist;
-    print("Age:                 " + age);
-    print("Body-Mass:           " + bmi + "(index = " + index + ")");
-    print("Blood Pressure:      " + bp + "(" + pressure + ")");
-    print("Family History:      " + hist);
+    var risk = agev + bmi + bp + hist;
     if (risk <= 20)
         print("Based on these scores, the patient is low-risk.");
     elif(risk >=21 && risk <= 50)
