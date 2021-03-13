@@ -84,6 +84,10 @@ function calcRisk() {
         pressure = "crisis";
     var hist = calcHistroy();
     var risk = age + bmi + bp + hist;
+    print("Age:                 " + age);
+    print("Body-Mass:           " + bmi + "(index = " + index + ")");
+    print("Blood Pressure:      " + bp + "(" + pressure + ")");
+    print("Family History:      " + hist);
     if (risk <= 20)
         print("Based on these scores, the patient is low-risk.");
     elif(risk >=21 && risk <= 50)
