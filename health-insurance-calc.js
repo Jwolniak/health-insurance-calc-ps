@@ -68,8 +68,11 @@ function calcHistory() {
 
 function calcRisk() {
     var agev = calAgePoints();
+    document.getElementById("agepts").value = agev;
     var bmi = calcBodyMassIndex();
+    document.getElementById("bmipts").value = bmi;
     var index = (703 * (document.getElementById("weight").value) / Math.pow(document.getElementById("height").value,2));
+    document.getElementById("index").value = index;
     var bp = calcBP();
     var pressure;
     if (bp == 0) 
@@ -82,14 +85,17 @@ function calcRisk() {
         pressure = "stage 2";
     elif (bp == 100)
         pressure = "crisis";
-    var hist = calcHistroy();
+    document.getElementById("bp").value = pressure;
+    var hist = calcHistory();
+    document.getElementById("hispts").value = hist;
     var risk = agev + bmi + bp + hist;
     if (risk <= 20)
-        print("Based on these scores, the patient is low-risk.");
+        alert("Based on these scores, the patient is low-risk.");
     elif(risk >=21 && risk <= 50)
-        print("Based on these scores, the patient is moderate-risk.");
+        alert("Based on these scores, the patient is moderate-risk.");
     elif (risk >= 51 && risk <= 70)
-        print("Based on these scores, the patient is high-risk.");
+        alert("Based on these scores, the patient is high-risk.");
     elif (risk >= 71)
-        print("Based on these scores, the patient is uninsurable.");
+        alert("Based on these scores, the patient is uninsurable."); 
 }
+
